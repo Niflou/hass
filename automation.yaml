@@ -398,7 +398,7 @@
   initial_state: 'on'
   trigger:
     platform: homeassistant
-    event_type: start
+    event: start
   action:
     - service: homeassistant.turn_off
       entity_id: group.radiateurs
