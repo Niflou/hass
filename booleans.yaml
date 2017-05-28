@@ -1,4 +1,4 @@
-stop_heaters:
+master_switch_heaters:
   name: Marche chauffage
   initial: off
   icon: mdi:fire

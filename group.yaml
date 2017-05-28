@@ -12,6 +12,11 @@ switches:
   name: Switches
   entities:
     - group.radiateurs
+    - group.rfx
+
+rfx:
+  name: RFX switches
+  entities:
     - switch.chambre_nathan_rfx
     - switch.cuisine_rfx
     - switch.entree_rfx

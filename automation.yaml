@@ -1,4 +1,18 @@
 #############################################################################
+################### Master switch radiateurs ################################
+#############################################################################
+- id: b1cb875b-2817-44c6-9656-3c3be649d3f7
+  alias: Turn off the heaters globally
+  initial_state: 'off'
+  trigger:
+    platform: state
+    entity_id: input_boolean.master_switch_heaters
+  action:
+    - service: homeassistant.turn_on
+      entity_id: group.radiateurs
+
+
+#############################################################################
 ################### resend switch command every 5 minutes ###################
 #############################################################################
 - id: "01"
