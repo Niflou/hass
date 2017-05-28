@@ -1,7 +1,8 @@
 #############################################################################
 ################### resend switch command every 5 minutes ###################
 #############################################################################
-- alias: Resend switch ON command for switch.salon_rfx
+- id: 01
+  alias: Resend switch ON command for switch.salon_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -15,7 +16,8 @@
     - service: homeassistant.turn_on
       entity_id: switch.salon_rfx
 
-- alias: Resend switch OFF command for switch.salon_rfx
+- id: 02
+  alias: Resend switch OFF command for switch.salon_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -29,7 +31,8 @@
     - service: homeassistant.turn_off
       entity_id: switch.salon_rfx
 
-- alias: Resend switch ON command for switch.salle_de_bain_rfx
+- id: 03
+  alias: Resend switch ON command for switch.salle_de_bain_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -43,7 +46,8 @@
     - service: homeassistant.turn_on
       entity_id: switch.salle_de_bain_rfx
 
-- alias: Resend switch OFF command for switch.salle_de_bain_rfx
+- id: 04
+  alias: Resend switch OFF command for switch.salle_de_bain_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -57,7 +61,8 @@
     - service: homeassistant.turn_off
       entity_id: switch.salle_de_bain_rfx
 
-- alias: Resend switch ON command for switch.entree_rfx
+- id: 05
+  alias: Resend switch ON command for switch.entree_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -71,7 +76,8 @@
     - service: homeassistant.turn_on
       entity_id: switch.entree_rfx
 
-- alias: Resend switch OFF command for switch.entree_rfx
+- id: 06
+  alias: Resend switch OFF command for switch.entree_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -85,7 +91,8 @@
     - service: homeassistant.turn_off
       entity_id: switch.entree_rfx
 
-- alias: Resend switch ON command for switch.cuisine_rfx
+- id: 07
+  alias: Resend switch ON command for switch.cuisine_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -99,7 +106,8 @@
     - service: homeassistant.turn_on
       entity_id: switch.cuisine_rfx
 
-- alias: Resend switch OFF command for switch.cuisine_rfx
+- id: 08
+  alias: Resend switch OFF command for switch.cuisine_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -113,7 +121,8 @@
     - service: homeassistant.turn_off
       entity_id: switch.cuisine_rfx
 
-- alias: Resend switch ON command for switch.chambre_nathan_rfx
+- id: 10
+  alias: Resend switch ON command for switch.chambre_nathan_rfx
   initial_state: 'on'
   trigger:
     platform: time
@@ -127,7 +136,8 @@
     - service: homeassistant.turn_on
       entity_id: switch.chambre_nathan_rfx
 
-- alias: Resend switch OFF command for switch.chambre_nathan_rfx
+- id: 09
+  alias: Resend switch OFF command for switch.chambre_nathan_rfx
   initial_state: 'on'
   trigger:
     platform: time

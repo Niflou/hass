@@ -66,3 +66,4 @@ misc:
     - switch.lampe_salon
     - script.restart_hass
     - script.starwars
+    - input_boolean.stop_heaters
