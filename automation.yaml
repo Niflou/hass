@@ -1,7 +1,7 @@
 #############################################################################
 ################### resend switch command every 5 minutes ###################
 #############################################################################
-- id: 01
+- id: "01"
   alias: Resend switch ON command for switch.salon_rfx
   initial_state: 'on'
   trigger:
@@ -16,7 +16,7 @@
     - service: homeassistant.turn_on
       entity_id: switch.salon_rfx
 
-- id: 02
+- id: "02"
   alias: Resend switch OFF command for switch.salon_rfx
   initial_state: 'on'
   trigger:
@@ -31,7 +31,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.salon_rfx
 
-- id: 03
+- id: "03"
   alias: Resend switch ON command for switch.salle_de_bain_rfx
   initial_state: 'on'
   trigger:
@@ -46,7 +46,7 @@
     - service: homeassistant.turn_on
       entity_id: switch.salle_de_bain_rfx
 
-- id: 04
+- id: "04"
   alias: Resend switch OFF command for switch.salle_de_bain_rfx
   initial_state: 'on'
   trigger:
@@ -61,7 +61,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.salle_de_bain_rfx
 
-- id: 05
+- id: "05"
   alias: Resend switch ON command for switch.entree_rfx
   initial_state: 'on'
   trigger:
@@ -76,7 +76,7 @@
     - service: homeassistant.turn_on
       entity_id: switch.entree_rfx
 
-- id: 06
+- id: "06"
   alias: Resend switch OFF command for switch.entree_rfx
   initial_state: 'on'
   trigger:
@@ -91,7 +91,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.entree_rfx
 
-- id: 07
+- id: "07"
   alias: Resend switch ON command for switch.cuisine_rfx
   initial_state: 'on'
   trigger:
@@ -106,7 +106,7 @@
     - service: homeassistant.turn_on
       entity_id: switch.cuisine_rfx
 
-- id: 08
+- id: "08"
   alias: Resend switch OFF command for switch.cuisine_rfx
   initial_state: 'on'
   trigger:
@@ -121,7 +121,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.cuisine_rfx
 
-- id: 10
+- id: "09"
   alias: Resend switch ON command for switch.chambre_nathan_rfx
   initial_state: 'on'
   trigger:
@@ -136,7 +136,7 @@
     - service: homeassistant.turn_on
       entity_id: switch.chambre_nathan_rfx
 
-- id: 09
+- id: "10"
   alias: Resend switch OFF command for switch.chambre_nathan_rfx
   initial_state: 'on'
   trigger:
@@ -392,13 +392,13 @@
       data_template:
         entity_id: climate.thermostat_rdc
         temperature: '{{ states.input_slider.temperature_eco_rdc.state | float }}'
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_sdb
-        temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_chambre
-        temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
+    # - service: climate.set_temperature
+    #   data_template:
+    #     entity_id: climate.thermostat_sdb
+    #     temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
+    # - service: climate.set_temperature
+    #   data_template:
+    #     entity_id: climate.thermostat_chambre
+    #     temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
 
 
