@@ -1,6 +1,8 @@
 #############################################################################
 ################### Master switch radiateurs ################################
 #############################################################################
+# Turn off the heaters by setting all switches to OFF and setting the thermostat
+# temperature to 5°C
 - id: b1cb875b-2817-44c6-9656-3c3be649d3f7
   alias: Turn off the heaters globally
   initial_state: 'on'
@@ -14,7 +16,18 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.radiateurs
-
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: 5
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: 5
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chb
+        temperature: 5
 
 #############################################################################
 ################### resend switch command every 5 minutes ###################
@@ -27,9 +40,14 @@
     minutes: '/5'
     seconds: 00
   condition: 
-    - condition: state
-      entity_id: switch.salon_rfx
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: switch.salon_rfx
+        state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.salon_rfx
@@ -57,9 +75,14 @@
     minutes: '/5'
     seconds: 00
   condition: 
-    - condition: state
-      entity_id: switch.salle_de_bain_rfx
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: switch.salle_de_bain_rfx
+        state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.salle_de_bain_rfx
@@ -87,9 +110,14 @@
     minutes: '/5'
     seconds: 00
   condition: 
-    - condition: state
-      entity_id: switch.entree_rfx
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: switch.entree_rfx
+        state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.entree_rfx
@@ -117,9 +145,14 @@
     minutes: '/5'
     seconds: 00
   condition: 
-    - condition: state
-      entity_id: switch.cuisine_rfx
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: switch.cuisine_rfx
+        state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.cuisine_rfx
@@ -147,9 +180,14 @@
     minutes: '/5'
     seconds: 00
   condition: 
-    - condition: state
-      entity_id: switch.chambre_nathan_rfx
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: switch.chambre_nathan_rfx
+        state: 'on'
   action:
     - service: homeassistant.turn_on
       entity_id: switch.chambre_nathan_rfx
@@ -180,6 +218,10 @@
     entity_id: calendar.chauffage_rdc
     to: 'on'
     from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.switch_heaters
+      state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -193,6 +235,10 @@
     entity_id: calendar.chauffage_rdc
     to: 'off'
     from: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.switch_heaters
+      state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -205,9 +251,14 @@
     platform: state
     entity_id: input_slider.temperature_confort_rdc
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_rdc
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_rdc
+        state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -220,9 +271,14 @@
     platform: state
     entity_id: input_slider.temperature_eco_rdc
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_rdc
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_rdc
+        state: 'off'
   action:
     - service: climate.set_temperature
       data_template:
@@ -241,6 +297,10 @@
     entity_id: calendar.chauffage_sdb
     to: 'on'
     from: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.switch_heaters
+      state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -254,6 +314,10 @@
     entity_id: calendar.chauffage_sdb
     to: 'off'
     from: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.switch_heaters
+      state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -266,9 +330,14 @@
     platform: state
     entity_id: input_slider.temperature_confort_sdb
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_sdb
-      state: 'on'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_sdb
+        state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -281,9 +350,14 @@
     platform: state
     entity_id: input_slider.temperature_eco_sdb
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_sdb
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_sdb
+        state: 'off'
   action:
     - service: climate.set_temperature
       data_template:
@@ -303,8 +377,13 @@
     entity_id: calendar.chauffage_chb
     to: 'on'
   condition:
-    - condition: template
-      value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: template
+        value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
   action:
     - service: climate.set_temperature
       data_template:
@@ -319,8 +398,13 @@
     entity_id: calendar.chauffage_chb
     to: 'on'
   condition:
-    - condition: template
-      value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: template
+        value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
   action:
     - service: climate.set_temperature
       data_template:
@@ -334,6 +418,10 @@
     platform: state
     entity_id: calendar.chauffage_chb
     to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.switch_heaters
+      state: 'on'
   action:
     - service: climate.set_temperature
       data_template:
@@ -348,11 +436,16 @@
     platform: state
     entity_id: input_slider.temperature_confort_chb
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_chb
-      state: 'on'
-    - condition: template
-      value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_chb
+        state: 'on'
+      - condition: template
+        value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
   action:
     - service: climate.set_temperature
       data_template:
@@ -366,11 +459,16 @@
     platform: state
     entity_id: input_slider.temperature_reduit_chb
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_chb
-      state: 'on'
-    - condition: template
-      value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_chb
+        state: 'on'
+      - condition: template
+        value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
   action:
     - service: climate.set_temperature
       data_template:
@@ -384,9 +482,14 @@
     platform: state
     entity_id: input_slider.temperature_eco_chb
   condition:
-    - condition: state
-      entity_id: calendar.chauffage_chb
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.switch_heaters
+        state: 'on'
+      - condition: state
+        entity_id: calendar.chauffage_chb
+        state: 'off'
   action:
     - service: climate.set_temperature
       data_template:
