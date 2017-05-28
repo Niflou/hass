@@ -43,7 +43,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: switch.salon_rfx
@@ -78,7 +79,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: switch.salle_de_bain_rfx
@@ -113,7 +115,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: switch.entree_rfx
@@ -148,7 +151,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: switch.cuisine_rfx
@@ -183,7 +187,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: switch.chambre_nathan_rfx
@@ -220,7 +225,8 @@
     from: 'off'
   condition:
     - condition: state
-      entity_id: input_boolean.switch_heaters
+      entity_id: input_boolean.master_switch_heaters
+  
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -237,7 +243,8 @@
     from: 'on'
   condition:
     - condition: state
-      entity_id: input_boolean.switch_heaters
+      entity_id: input_boolean.master_switch_heaters
+  
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -254,7 +261,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_rdc
@@ -274,7 +282,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_rdc
@@ -299,7 +308,8 @@
     from: 'off'
   condition:
     - condition: state
-      entity_id: input_boolean.switch_heaters
+      entity_id: input_boolean.master_switch_heaters
+  
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -316,7 +326,8 @@
     from: 'on'
   condition:
     - condition: state
-      entity_id: input_boolean.switch_heaters
+      entity_id: input_boolean.master_switch_heaters
+  
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -333,7 +344,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_sdb
@@ -353,7 +365,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_sdb
@@ -380,7 +393,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: template
         value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
@@ -401,7 +415,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: template
         value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
@@ -420,7 +435,8 @@
     to: 'off'
   condition:
     - condition: state
-      entity_id: input_boolean.switch_heaters
+      entity_id: input_boolean.master_switch_heaters
+  
       state: 'on'
   action:
     - service: climate.set_temperature
@@ -439,7 +455,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_chb
@@ -462,7 +479,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_chb
@@ -485,7 +503,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.switch_heaters
+        entity_id: input_boolean.master_switch_heaters
+  
         state: 'on'
       - condition: state
         entity_id: calendar.chauffage_chb
