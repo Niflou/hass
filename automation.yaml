@@ -3,7 +3,7 @@
 #############################################################################
 - id: b1cb875b-2817-44c6-9656-3c3be649d3f7
   alias: Turn off the heaters globally
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     platform: state
     entity_id: input_boolean.master_switch_heaters
