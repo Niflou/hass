@@ -18,10 +18,9 @@
   friendly_name: Thermostat
   icon: mdi:thermometer
 
-#"script.restart_hass":
-#  friendly_name: Redemarrer
-#  icon: mdi:power
-#  hidden: true
+"script.restart_hass":
+  friendly_name: Redemarrer
+  icon: mdi:power
 
 "script.starwars":
   friendly_name: Jouer starwars

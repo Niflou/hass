@@ -1,0 +1,4 @@
+stop_heaters:
+  name: Marche chauffage
+  initial: off
+  icon: mdi:fire

@@ -80,3 +80,4 @@ switch: !include switch.yaml
 group: !include group.yaml
 climate: !include climate.yaml 
 automation: !include automation.yaml
+input_boolean: !include booleans.yaml
