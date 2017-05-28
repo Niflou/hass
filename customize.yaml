@@ -30,3 +30,7 @@
   assumed_state: false
   icon: mdi:lamp
 
+"input_boolean.master_switch_heaters":
+  friendly_name: "Activation chauffages"
+  assumed_state: false
+  icon: mdi:fire

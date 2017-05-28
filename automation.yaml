@@ -409,7 +409,7 @@
     - service: homeassistant.turn_off
       entity_id: switch.lampe_salon
     - service: homeassistant.turn_on
-      entity_id: switch.master_switch_heaters
+      entity_id: input_boolean.master_switch_heaters
     - service: climate.set_temperature
       data_template:
         entity_id: climate.thermostat_rdc
