@@ -408,13 +408,13 @@
       data_template:
         entity_id: climate.thermostat_rdc
         temperature: '{{ states.input_slider.temperature_eco_rdc.state | float }}'
-    # - service: climate.set_temperature
-    #   data_template:
-    #     entity_id: climate.thermostat_sdb
-    #     temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
-    # - service: climate.set_temperature
-    #   data_template:
-    #     entity_id: climate.thermostat_chambre
-    #     temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
 
 
