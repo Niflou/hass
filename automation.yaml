@@ -8,7 +8,7 @@
     platform: state
     entity_id: input_boolean.master_switch_heaters
   action:
-    - service: homeassistant.turn_on
+    - service: homeassistant.turn_off
       entity_id: group.radiateurs
 
 
