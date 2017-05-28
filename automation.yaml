@@ -402,6 +402,8 @@
   action:
     - service: homeassistant.turn_off
       entity_id: group.radiateurs
+    - service: homeassistant.turn_off
+      entity_id: switch.lampe_salon
     - service: climate.set_temperature
       data_template:
         entity_id: climate.thermostat_rdc

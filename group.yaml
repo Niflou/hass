@@ -7,23 +7,6 @@ default_view:
     - group.chambre
     - group.misc
 
-switches:
-  view: yes
-  name: Switches
-  entities:
-    - group.radiateurs
-    - group.rfx
-
-rfx:
-  name: RFX switches
-  entities:
-    - switch.chambre_nathan_rfx
-    - switch.cuisine_rfx
-    - switch.entree_rfx
-    - switch.salle_de_bain_rfx
-    - switch.salon_rfx
-    - switch.lampe_salon
-
 rdc:
   name: Thermostat RDC
   entities:
@@ -49,6 +32,21 @@ chambre:
     - input_slider.temperature_eco_chb
     - climate.thermostat_chambre
 
+misc:
+  name: Divers
+  entities:
+    - switch.lampe_salon
+    - script.restart_hass
+    - script.starwars
+    - input_boolean.master_switch_heaters
+
+switches:
+  view: yes
+  name: Switches
+  entities:
+    - group.radiateurs
+    - group.rfx
+
 radiateurs:
   name: Radiateurs
   entities: 
@@ -58,6 +56,17 @@ radiateurs:
     - switch.salle_de_bain
     - switch.chambre_nathan
 
+rfx:
+  name: RFX switches
+  entities:
+    - switch.chambre_nathan_rfx
+    - switch.cuisine_rfx
+    - switch.entree_rfx
+    - switch.salle_de_bain_rfx
+    - switch.salon_rfx
+    - switch.lampe_salon
+
+# indispensable pr manipuler tous les radiateurs du salon ensemble (thermostat salon)
 radiateurs_rdc:
   name: Radiateurs RDC
   entities:
@@ -65,10 +74,4 @@ radiateurs_rdc:
     - switch.entree
     - switch.salon
 
-misc:
-  name: Divers
-  entities:
-    - switch.lampe_salon
-    - script.restart_hass
-    - script.starwars
-    - input_boolean.stop_heaters
+
