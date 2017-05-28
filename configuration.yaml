@@ -1,0 +1,82 @@
+homeassistant:
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 50.5375
+  longitude: 2.9536
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 24
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Paris
+  customize_glob: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: !secret http_api_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  base_url: !secret base_url
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+influxdb:
+  host: !secret influx_host
+  port: !secret influx_port
+  username: !secret influx_username
+  password: !secret influx_password
+  database: !secret influx_database
+
+# Weather Prediction
+#sensor:
+#  platform: yr
+
+# Text to speech
+tts:
+  platform: google
+
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+
+rfxtrx:
+  device: !secret rfxtrx_device
+
+script:
+  restart_hass:
+    sequence:
+        service: homeassistant.restart
+  starwars:
+    sequence:
+        - service: shell_command.starwars
+
+shell_command:
+  starwars: /root/scripts/starwars.sh
+
+input_slider: !include sliders.yaml
+sensor: !include sensor.yaml
+switch: !include switch.yaml
+group: !include group.yaml
+climate: !include climate.yaml 
+automation: !include automation.yaml

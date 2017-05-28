@@ -1,0 +1,77 @@
+- platform: rfxtrx
+  automatic_add: True
+  devices:
+    #0a520a00a50100c7000279:
+    0a520a03c70100ba000279:
+      name: Salle de bain
+      data_type:
+        - Temperature
+    0850020d1a0100ab89:
+      name: Salon
+      data_type:
+        - Temperature
+    0850020c630100b069:
+      name: Chambre Nathan
+      data_type:
+        - Temperature
+#    08500a030d0100ae40:
+#      name: Sonde inconnue
+
+- platform: darksky
+  api_key: 9b91c198f608a60ca58d080c3a918948
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - nearest_storm_bearing
+    - precip_type
+    - precip_intensity
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - dew_point
+    - wind_speed
+    - wind_bearing
+    - cloud_cover
+    - humidity
+    - pressure
+    - visibility
+    - ozone
+    - minutely_summary
+    - hourly_summary
+    - daily_summary
+    - temperature_max
+    - temperature_min
+    - apparent_temperature_max
+    - apparent_temperature_min
+    - precip_intensity_max
+
+- platform: openweathermap
+  api_key: 8c3a77a4584cc82ece8b97ab144bfa27
+  forecast: true
+  monitored_conditions:
+    - weather
+    - temperature
+    - wind_speed
+    - humidity
+    - pressure
+    - clouds
+    - rain
+    - snow
+
+- platform: wunderground
+  api_key: 7180be5365ae5bfc
+  monitored_conditions:
+    - dewpoint_c
+    - feelslike_c
+    - heat_index_c
+    - elevation
+    - location
+    - precip_1hr_metric
+    - precip_today_metric
+    - pressure_mb
+    - pressure_trend
+    - relative_humidity
+    - temp_c
+    - UV
+    - wind_kph

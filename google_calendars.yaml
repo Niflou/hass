@@ -1,0 +1,64 @@
+
+- cal_id: 6jcs2e7b40l551151v27f3al6c@group.calendar.google.com
+  entities:
+  - device_id: cp_nounou
+    name: CP Nounou
+    track: false
+
+- cal_id: afthakia.genet@gmail.com
+  entities:
+  - device_id: afthakiagenetgmailcom
+    name: afthakia.genet@gmail.com
+    track: false
+
+- cal_id: dubuscyr@gmail.com
+  entities:
+  - device_id: dubuscyrgmailcom
+    name: dubuscyr@gmail.com
+    track: false
+
+- cal_id: cyril.dubus@effigenie.com
+  entities:
+  - device_id: cyril
+    name: Cyril
+    track: false
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    name: Contacts
+    track: false
+
+- cal_id: french__fr@holiday.calendar.google.com
+  entities:
+  - device_id: jours_feries_en_france
+    name: "Jours f\xE9ri\xE9s en France"
+    track: false
+
+- cal_id: p#weather@group.v.calendar.google.com
+  entities:
+  - device_id: weather_beirut_lebanon
+    name: 'Weather: beirut lebanon'
+    track: false
+
+- cal_id: sr0t2m8pp26725tdodqi4t88js@group.calendar.google.com
+  entities:
+  - device_id: chauffage_rdc
+    name: Chauffage RDC
+    track: true
+    search: '#RDC'
+  - device_id: chauffage_sdb
+    name: Chauffage SDB
+    track: true
+    search: '#SDB'
+  - device_id: chauffage_chb
+    name: Chauffage CHB
+    track: true
+    search: '#CHB'
+
+
+- cal_id: fr.french#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: jours_feries_en_france
+    name: "Jours f\xE9ri\xE9s en France"
+    track: true

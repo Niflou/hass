@@ -1,0 +1,10 @@
+fix_calendar_google
+*.php
+home-assistant_v2.db
+secrets.yaml
+*.log
+.*
+!/.gitignore
+speech/
+deps/
+vendor/

@@ -1,0 +1,33 @@
+"input_slider.temperature_confort_*":
+  friendly_name: T° Confort
+  icon: mdi:white-balance-sunny
+
+"input_slider.temperature_eco_*":
+  friendly_name: T° Eco
+  icon: mdi:weather-night
+
+"input_slider.temperature_reduit_*":
+  friendly_name: T° Réduit
+  icon: mdi:sleep
+
+"sensor.*_temperature":
+  friendly_name: Temperature
+  icon: mdi:temperature-celsius
+
+"climate.*":
+  friendly_name: Thermostat
+  icon: mdi:thermometer
+
+#"script.restart_hass":
+#  friendly_name: Redemarrer
+#  icon: mdi:power
+#  hidden: true
+
+"script.starwars":
+  friendly_name: Jouer starwars
+  icon: mdi:music-note
+
+"switch.lampe_salon":
+  assumed_state: false
+  icon: mdi:lamp
+

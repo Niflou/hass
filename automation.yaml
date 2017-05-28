@@ -1,0 +1,394 @@
+#############################################################################
+################### resend switch command every 5 minutes ###################
+#############################################################################
+- alias: Resend switch ON command for switch.salon_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.salon_rfx
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.salon_rfx
+
+- alias: Resend switch OFF command for switch.salon_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.salon_rfx
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.salon_rfx
+
+- alias: Resend switch ON command for switch.salle_de_bain_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.salle_de_bain_rfx
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.salle_de_bain_rfx
+
+- alias: Resend switch OFF command for switch.salle_de_bain_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.salle_de_bain_rfx
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.salle_de_bain_rfx
+
+- alias: Resend switch ON command for switch.entree_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.entree_rfx
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.entree_rfx
+
+- alias: Resend switch OFF command for switch.entree_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.entree_rfx
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.entree_rfx
+
+- alias: Resend switch ON command for switch.cuisine_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.cuisine_rfx
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.cuisine_rfx
+
+- alias: Resend switch OFF command for switch.cuisine_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.cuisine_rfx
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.cuisine_rfx
+
+- alias: Resend switch ON command for switch.chambre_nathan_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.chambre_nathan_rfx
+      state: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.chambre_nathan_rfx
+
+- alias: Resend switch OFF command for switch.chambre_nathan_rfx
+  initial_state: 'on'
+  trigger:
+    platform: time
+    minutes: '/5'
+    seconds: 00
+  condition: 
+    - condition: state
+      entity_id: switch.chambre_nathan_rfx
+      state: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.chambre_nathan_rfx
+ 
+
+#############################################################################
+############################## Thermostat RDC ###############################
+#############################################################################
+- alias: RDC passage confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_rdc
+    to: 'on'
+    from: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: '{{ states.input_slider.temperature_confort_rdc.state | float }}'
+
+- alias: RDC passage eco
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_rdc
+    to: 'off'
+    from: 'on'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: '{{ states.input_slider.temperature_eco_rdc.state | float }}'
+
+- alias: RDC Slider confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_confort_rdc
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_rdc
+      state: 'on'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: '{{ states.input_slider.temperature_confort_rdc.state | float }}'
+
+- alias: Temperature eco thermostat RDC
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_eco_rdc
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_rdc
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: '{{ states.input_slider.temperature_eco_rdc.state | float }}'
+
+
+#############################################################################
+############################## Thermostat SDB ###############################
+#############################################################################
+
+- alias: SDB passage confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_sdb
+    to: 'on'
+    from: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_confort_sdb.state | float }}'
+
+- alias: SDB passage eco
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_sdb
+    to: 'off'
+    from: 'on'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
+
+- alias: SDB Slider confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_confort_sdb
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_sdb
+      state: 'on'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_confort_sdb.state | float }}'
+
+- alias: Temperature eco thermostat SDB
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_eco_sdb
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_sdb
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
+
+
+#############################################################################
+############################## Thermostat CHB ###############################
+#############################################################################
+
+# Si le planning passe a ON et qu'on a pas le mot LOW dans les settings alors on est en confort
+- alias: Chambre passage confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_chb
+    to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_confort_chb.state | float }}'
+
+# Si le planning passe a ON et qu'on a le mot LOW dans les settings alors on est en reduit
+- alias: Chambre passage reduit
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_chb
+    to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_reduit_chb.state | float }}'
+
+# Si le planning passe a OFF alors on est en eco
+- alias: Chambre passage eco
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: calendar.chauffage_chb
+    to: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
+
+# Changement de T°C des sliders
+# si le planning est a ON et qu'on a pas LOW dans le message alors on est en confort
+- alias: Chambre Slider confort
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_confort_chb
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_chb
+      state: 'on'
+    - condition: template
+      value_template: "{{ 'LOW' not in states.calendar.chauffage_chb.attributes.message }}"
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_confort_chb.state | float }}'
+
+# si le planning est a ON et qu'on a LOW dans le message alors on est en reduit
+- alias: Chambre Slider reduit
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_reduit_chb
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_chb
+      state: 'on'
+    - condition: template
+      value_template: "{{ 'LOW' in states.calendar.chauffage_chb.attributes.message }}"
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_reduit_chb.state | float }}'
+
+# si le planning est a OFF alors on est en eco
+- alias: Temperature eco thermostat Chambre
+  initial_state: 'on'
+  trigger:
+    platform: state
+    entity_id: input_slider.temperature_eco_chb
+  condition:
+    - condition: state
+      entity_id: calendar.chauffage_chb
+      state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
+
+
+#############################################################################
+############################ Startup automation #############################
+#############################################################################
+
+- alias: Home Assistant startup
+  initial_state: 'on'
+  trigger:
+    platform: event
+    event_type: homeassistant
+  action:
+    - service: homeassistant.turn_off
+      entity_id: group.radiateurs
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_rdc
+        temperature: '{{ states.input_slider.temperature_eco_rdc.state | float }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_sdb
+        temperature: '{{ states.input_slider.temperature_eco_sdb.state | float }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_chambre
+        temperature: '{{ states.input_slider.temperature_eco_chb.state | float }}'
+
+

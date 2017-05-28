@@ -1,0 +1,64 @@
+- platform: rfxtrx
+  automatic_add: True
+  signal_repetitions: 3
+  devices:
+    0b1100010204bff210010f80:
+      name: Lampe salon
+    0b1100010336bff201010f80:
+      name: Chambre Nathan RFX
+    0b1100010336bff202010f80:
+      name: Salle de bain RFX
+    0b1100010336bff203010f80:
+      name: Entrée RFX
+    0b1100010336bff204010f80:
+      name: Salon RFX
+    0b1100010336bff205010f80:
+      name: Cuisine RFX
+
+- platform: template
+  switches:
+    salon:
+      friendly_name: 'Salon'
+      value_template: "{{ is_state('switch.salon_rfx', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        entity_id: switch.salon_rfx
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.salon_rfx
+    entree:
+      friendly_name: 'Entrée'
+      value_template: "{{ is_state('switch.entree_rfx', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        entity_id: switch.entree_rfx
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.entree_rfx
+    cuisine:
+      friendly_name: 'Cuisine'
+      value_template: "{{ is_state('switch.cuisine_rfx', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        entity_id: switch.cuisine_rfx
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.cuisine_rfx
+    salle_de_bain:
+      friendly_name: 'Salle de bain'
+      value_template: "{{ is_state('switch.salle_de_bain_rfx', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        entity_id: switch.salle_de_bain_rfx
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.salle_de_bain_rfx
+    chambre_nathan:
+      friendly_name: 'Chambre Nathan'
+      value_template: "{{ is_state('switch.chambre_nathan_rfx', 'off') }}"
+      turn_on:
+        service: switch.turn_off
+        entity_id: switch.chambre_nathan_rfx
+      turn_off:
+        service: switch.turn_on
+        entity_id: switch.chambre_nathan_rfx
