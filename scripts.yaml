@@ -1,0 +1,29 @@
+restart_hass:
+  sequence:
+      service: homeassistant.restart
+
+starwars:
+  sequence:
+      service: shell_command.starwars
+
+allumer_lampe_du_salon:
+  sequence:
+      service: homeassistant.turn_on
+      data: 
+        entity_id: switch.living_room_lamp
+
+eteindre_lampe_du_salon:
+  sequence:
+      service: homeassistant.turn_off
+      data:
+        entity_id: switch.living_room_lamp
+
+allume_son:
+  sequence:
+      service: rest_command.toggle_sound
+
+eteint_son:
+  sequence:
+      service: rest_command.toggle_sound
+
+

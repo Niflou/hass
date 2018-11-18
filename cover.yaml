@@ -1,0 +1,15 @@
+- platform: mqtt
+  name: "Velux"
+  command_topic: "velux-control"
+  state_topic: "velux-control/state"
+  availability_topic: "velux-control/availability"
+  qos: 0
+  retain: true
+  payload_open: "OPEN"
+  payload_close: "CLOSE"
+  payload_stop: "STOP"
+  state_open: "OPEN"
+  state_closed: "CLOSED"
+  payload_available: "ONLINE"
+  payload_not_available: "OFFLINE"
+  

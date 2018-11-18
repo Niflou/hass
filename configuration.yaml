@@ -13,6 +13,11 @@ homeassistant:
 
 # Show links to resources in log and frontend
 #introduction:
+logger:
+  default: error
+  logs:
+    homeassistant.components.automation: debug
+    homeassistant.components.alexa: debug
 
 # Enables the frontend
 frontend:
@@ -28,6 +33,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - freebox 
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -53,8 +60,8 @@ influxdb:
 #  platform: yr
 
 # Text to speech
-tts:
-  platform: google
+# tts:
+#   platform: google
 
 google:
   client_id: !secret google_client_id
@@ -63,21 +70,30 @@ google:
 rfxtrx:
   device: !secret rfxtrx_device
 
-script:
-  restart_hass:
-    sequence:
-        service: homeassistant.restart
-  starwars:
-    sequence:
-        - service: shell_command.starwars
+script: !include scripts.yaml
 
 shell_command:
   starwars: /root/scripts/starwars.sh
 
-input_slider: !include sliders.yaml
+input_number: !include sliders.yaml
 sensor: !include sensor.yaml
 switch: !include switch.yaml
 group: !include group.yaml
 climate: !include climate.yaml 
 automation: !include automation.yaml
 input_boolean: !include booleans.yaml
+rest_command: !include rest.yaml
+mqtt: !include mqtt.yaml
+cover: !include cover.yaml
+
+alexa:
+
+intent_script:
+  AlexaScript:
+    action:
+      service: script.turn_on
+      data_template:
+        entity_id: script.{{ action | replace('d\'','') | replace('é','e') }}_{{ device | replace(' ','_') }}
+    speech:
+      type: plain
+      text: !include alexa-confirm.yaml 

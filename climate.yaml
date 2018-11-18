@@ -2,12 +2,15 @@
   name: Thermostat SDB
   heater: switch.salle_de_bain
   target_sensor: sensor.salle_de_bain_temperature 
-  min_temp: 10
-  max_temp: 24
-  target_temp: 23
+  min_temp: 8
+  max_temp: 30
+  target_temp: 21
   tolerance: 0.5
   min_cycle_duration:
     seconds: 15
+  keep_alive:
+    minutes: 5
+  away_temp: 10
 
 - platform: generic_thermostat
   name: Thermostat Chambre
@@ -19,14 +22,20 @@
   tolerance: 0.2
   min_cycle_duration:
     seconds: 15
+  keep_alive:
+    minutes: 5
+  away_temp: 10
 
 - platform: generic_thermostat
   name: Thermostat RDC
   heater: group.radiateurs_rdc
   target_sensor: sensor.salon_temperature
   min_temp: 14
-  max_temp: 20
-  target_temp: 18 
+  max_temp: 21
+  target_temp: 18.5
   tolerance: 0.1
   min_cycle_duration:
    seconds: 15
+  keep_alive:
+    minutes: 5
+  away_temp: 10

@@ -8,3 +8,4 @@ secrets.yaml
 speech/
 deps/
 vendor/
+skill_alexa.py

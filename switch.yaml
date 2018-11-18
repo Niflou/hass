@@ -1,17 +1,31 @@
+- platform: mqtt
+  name: "Salon MQTT"
+  state_topic: "stat/radiateursalon/POWER"
+  command_topic: "cmnd/radiateursalon/POWER"
+  availability_topic: "tele/radiateursalon/LWT"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
 - platform: rfxtrx
   automatic_add: True
   signal_repetitions: 3
   devices:
     0b1100010204bff210010f80:
-      name: Lampe salon
+      name: Living room lamp
+    0b1100010205bff210010f80:
+      name: Ernest
     0b1100010336bff201010f80:
-      name: Chambre Nathan RFX
-    0b1100010336bff202010f80:
       name: Salle de bain RFX
+    0b1100010336bff202010f80:
+      name: Chambre Nathan RFX
     0b1100010336bff203010f80:
       name: Entrée RFX
-    0b1100010336bff204010f80:
-      name: Salon RFX
+    #0b1100010336bff204010f80:
+    #  name: Salon RFX
     0b1100010336bff205010f80:
       name: Cuisine RFX
 
@@ -19,13 +33,13 @@
   switches:
     salon:
       friendly_name: 'Salon'
-      value_template: "{{ is_state('switch.salon_rfx', 'off') }}"
+      value_template: "{{ is_state('switch.salon_mqtt', 'off') }}"
       turn_on:
         service: switch.turn_off
-        entity_id: switch.salon_rfx
+        entity_id: switch.salon_mqtt
       turn_off:
         service: switch.turn_on
-        entity_id: switch.salon_rfx
+        entity_id: switch.salon_mqtt
     entree:
       friendly_name: 'Entrée'
       value_template: "{{ is_state('switch.entree_rfx', 'off') }}"

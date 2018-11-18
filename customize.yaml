@@ -1,12 +1,12 @@
-"input_slider.temperature_confort_*":
+"input_number.temperature_confort_*":
   friendly_name: T° Confort
   icon: mdi:white-balance-sunny
 
-"input_slider.temperature_eco_*":
+"input_number.temperature_eco_*":
   friendly_name: T° Eco
   icon: mdi:weather-night
 
-"input_slider.temperature_reduit_*":
+"input_number.temperature_reduit_*":
   friendly_name: T° Réduit
   icon: mdi:sleep
 
@@ -16,6 +16,7 @@
 
 "climate.*":
   friendly_name: Thermostat
+  unit_of_measurement: '°C'
   icon: mdi:thermometer
 
 "script.restart_hass":
@@ -26,9 +27,13 @@
   friendly_name: Jouer starwars
   icon: mdi:music-note
 
-"switch.lampe_salon":
+"switch.living_room_lamp":
   assumed_state: false
   icon: mdi:lamp
+
+"switch.ernest":
+  assumed_state: false
+  icon: mdi:robot-vacuum
 
 "input_boolean.master_switch_heaters":
   friendly_name: "Activation chauffages"

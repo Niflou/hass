@@ -6,39 +6,60 @@ default_view:
     - group.sdb
     - group.chambre
     - group.misc
+    - group.sound
+    - group.volets
 
 rdc:
   name: Thermostat RDC
   entities:
     - sensor.salon_temperature
-    - input_slider.temperature_confort_rdc
-    - input_slider.temperature_eco_rdc
+    - input_number.temperature_confort_rdc
+    - input_number.temperature_eco_rdc
     - climate.thermostat_rdc
 
 sdb:
   name: Thermostat SdB
   entities:
     - sensor.salle_de_bain_temperature
-    - input_slider.temperature_confort_sdb
-    - input_slider.temperature_eco_sdb
+    - input_number.temperature_confort_sdb
+    - input_number.temperature_eco_sdb
     - climate.thermostat_sdb
 
 chambre:
   name: Thermostat Chambre
   entities:
     - sensor.chambre_nathan_temperature
-    - input_slider.temperature_confort_chb
-    - input_slider.temperature_reduit_chb
-    - input_slider.temperature_eco_chb
+    - input_number.temperature_confort_chb
+    #- input_number.temperature_reduit_chb
+    - input_number.temperature_eco_chb
     - climate.thermostat_chambre
 
 misc:
   name: Divers
   entities:
-    - switch.lampe_salon
+    - switch.living_room_lamp
+    - switch.ernest
     - script.restart_hass
     - script.starwars
+    #- script.allume_son
     - input_boolean.master_switch_heaters
+
+sound:
+  name: Son télé
+  entities:
+    - rest_command.toggle_sound
+    - rest_command.sound_up
+    - rest_command.sound_down
+    - rest_command.sound_input1
+    - rest_command.sound_input2
+    - rest_command.sound_input3
+    - rest_command.sound_input4
+    - rest_command.sound_input5
+    - rest_command.sound_inputswitch
+    - rest_command.sound_inputaux
+    - rest_command.sound_effects
+    - rest_command.sound_level
+    
 
 switches:
   view: yes
@@ -46,6 +67,7 @@ switches:
   entities:
     - group.radiateurs
     - group.rfx
+    - group.mqtt
 
 radiateurs:
   name: Radiateurs
@@ -56,6 +78,11 @@ radiateurs:
     - switch.salle_de_bain
     - switch.chambre_nathan
 
+volets:
+  name: Volets
+  entities:
+    - cover.velux
+
 rfx:
   name: RFX switches
   entities:
@@ -63,8 +90,14 @@ rfx:
     - switch.cuisine_rfx
     - switch.entree_rfx
     - switch.salle_de_bain_rfx
-    - switch.salon_rfx
-    - switch.lampe_salon
+    #- switch.salon_rfx
+    - switch.living_room_lamp
+    - switch.ernest
+
+mqtt:
+  name: MQTT switches
+  entities:
+    - switch.salon_mqtt
 
 # indispensable pr manipuler tous les radiateurs du salon ensemble (thermostat salon)
 radiateurs_rdc:
