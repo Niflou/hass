@@ -6,6 +6,7 @@ default_view:
     - group.sdb
     - group.chambre
     - group.misc
+    - group.heaters
     - group.sound
     - group.volets
 
@@ -39,10 +40,19 @@ misc:
   entities:
     - switch.living_room_lamp
     - switch.ernest
+    - switch.sapin
     - script.restart_hass
     - script.starwars
     #- script.allume_son
+
+heaters:
+  name: Contrôle chauffages
+  entities:
     - input_boolean.master_switch_heaters
+    - input_boolean.calendar_auto
+    - input_boolean.calendar_rdc
+    - input_boolean.calendar_sdb
+    - input_boolean.calendar_chb
 
 sound:
   name: Son télé
@@ -93,6 +103,7 @@ rfx:
     #- switch.salon_rfx
     - switch.living_room_lamp
     - switch.ernest
+    - switch.sapin
 
 mqtt:
   name: MQTT switches

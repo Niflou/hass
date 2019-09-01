@@ -1,7 +1,8 @@
 - platform: rfxtrx
   automatic_add: True
   devices:
-    0a520aa9720100d4000289:
+    #0a520aa9720100d4000289:
+    0a520a682d0100bd000289:
       name: Salle de bain
       data_type:
         - Temperature
@@ -9,7 +10,8 @@
       name: Salon
       data_type:
         - Temperature
-    0850020c630100b069:
+    #0850020c630100b069:
+    0850026eec0100bb59:
       name: Chambre Nathan
       data_type:
         - Temperature

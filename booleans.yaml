@@ -2,3 +2,23 @@ master_switch_heaters:
   name: Marche chauffage
   initial: off
   icon: mdi:fire
+
+calendar_auto:
+  name: Active Google calendar
+  initial: off
+  icon: mdi:calendar
+
+calendar_sdb:
+  name: Calendrier SDB
+  initial: off
+  icon: mdi:calendar
+
+calendar_chb:
+  name: Calendrier CHB
+  initial: off
+  icon: mdi:calendar
+
+calendar_rdc:
+  name: Calendrier RDC
+  initial: off
+  icon: mdi:calendar

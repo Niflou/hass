@@ -60,7 +60,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_rdc
+    #entity_id: calendar.chauffage_rdc
+    entity_id: input_boolean.calendar_rdc
     to: 'on'
     from: 'off'
   condition:
@@ -81,7 +82,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_rdc
+    #entity_id: calendar.chauffage_rdc
+    entity_id: input_boolean.calendar_rdc
     to: 'off'
     from: 'on'
   condition:
@@ -112,7 +114,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_rdc
+        #entity_id: calendar.chauffage_rdc
+        entity_id: input_boolean.calendar_rdc
         state: 'on'
   action:
     - service: climate.set_temperature
@@ -137,7 +140,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_rdc
+        #entity_id: calendar.chauffage_rdc
+        entity_id: input_boolean.calendar_rdc
         state: 'on'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_rdc' }}"
@@ -159,7 +163,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_rdc
+        #entity_id: calendar.chauffage_rdc
+        entity_id: input_boolean.calendar_rdc
         state: 'off'
   action:
     - service: climate.set_temperature
@@ -184,7 +189,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_rdc
+        #entity_id: calendar.chauffage_rdc
+        entity_id: input_boolean.calendar_rdc
         state: 'off'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_rdc' }}"
@@ -203,7 +209,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_sdb
+    #entity_id: calendar.chauffage_sdb
+    entity_id: input_boolean.calendar_sdb
     to: 'on'
     from: 'off'
   condition:
@@ -224,7 +231,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_sdb
+    #entity_id: calendar.chauffage_sdb
+    entity_id: input_boolean.calendar_sdb
     to: 'off'
     from: 'on'
   condition:
@@ -254,7 +262,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_sdb
+        #entity_id: calendar.chauffage_sdb
+        entity_id: input_boolean.calendar_sdb
         state: 'on'
   action:
     - service: climate.set_temperature
@@ -280,7 +289,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_sdb
+        #entity_id: calendar.chauffage_sdb
+        entity_id: input_boolean.calendar_sdb
         state: 'on'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_sdb' }}"
@@ -303,7 +313,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_sdb
+        #entity_id: calendar.chauffage_sdb
+        entity_id: input_boolean.calendar_sdb
         state: 'off'
   action:
     - service: climate.set_temperature
@@ -327,7 +338,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_sdb
+        #entity_id: calendar.chauffage_sdb
+        entity_id: input_boolean.calendar_sdb
         state: 'off'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_sdb' }}"
@@ -345,7 +357,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_chb
+    #entity_id: calendar.chauffage_chb
+    entity_id: input_boolean.calendar_chb
     to: 'on'
     from: 'off'
   condition:
@@ -366,7 +379,8 @@
   initial_state: 'on'
   trigger:
     platform: state
-    entity_id: calendar.chauffage_chb
+    #entity_id: calendar.chauffage_chb
+    entity_id: input_boolean.calendar_chb
     to: 'off'
     from: 'on'
   condition:
@@ -397,7 +411,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_chb
+        #entity_id: calendar.chauffage_chb
+        entity_id: input_boolean.calendar_chb
         state: 'on'
   action:
     - service: climate.set_temperature
@@ -422,7 +437,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_chb
+        #entity_id: calendar.chauffage_chb
+        entity_id: input_boolean.calendar_chb
         state: 'on'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_chambre' }}"
@@ -444,7 +460,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_chb
+        #entity_id: calendar.chauffage_chb
+        entity_id: input_boolean.calendar_chb
         state: 'off'
   action:
     - service: climate.set_temperature
@@ -470,7 +487,8 @@
         entity_id: input_boolean.master_switch_heaters
         state: 'on'
       - condition: state
-        entity_id: calendar.chauffage_chb
+        #entity_id: calendar.chauffage_chb
+        entity_id: input_boolean.calendar_chb
         state: 'off'
       - condition: template
         value_template: "{{ trigger.event.data.service_data.entity_id == 'climate.thermostat_chambre' }}"
@@ -688,9 +706,10 @@
 #############################################################################
 
 - alias: Allumage ernest
+  initial_state: 'on'
   trigger:
     platform: time
-    at: '10:00:00'
+    at: '08:00:00'
   condition:
     - condition: time
       weekday:
@@ -701,20 +720,13 @@
         - fri
   action:
     - service: switch.turn_on
-      entity_id: switch.enerst
+      entity_id: switch.ernest
 
 - alias: Extinction ernest
+  initial_state: 'on'
   trigger:
     platform: time
     at: '17:00:00'
-  condition:
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
   action:
     - service: switch.turn_off
-      entity_id: switch.enerst
+      entity_id: switch.ernest

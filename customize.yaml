@@ -35,6 +35,10 @@
   assumed_state: false
   icon: mdi:robot-vacuum
 
+"switch.sapin":
+  assumed_state: false
+  icon: mdi:pine-tree
+
 "input_boolean.master_switch_heaters":
   friendly_name: "Activation chauffages"
   assumed_state: false

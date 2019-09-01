@@ -14,10 +14,11 @@ homeassistant:
 # Show links to resources in log and frontend
 #introduction:
 logger:
-  default: error
+  default: debug
   logs:
     homeassistant.components.automation: debug
-    homeassistant.components.alexa: debug
+    homeassistant.components.calendar: debug
+    googleapiclient: debug
 
 # Enables the frontend
 frontend:
@@ -30,11 +31,6 @@ http:
 
 # Checks for available updates
 updater:
-
-# Discover some devices automatically
-discovery:
-  ignore:
-    - freebox 
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -54,18 +50,18 @@ influxdb:
   username: !secret influx_username
   password: !secret influx_password
   database: !secret influx_database
+  include: 
+    domains:
+      - switch
+      - climate
+      - sensor
+      - cover
+      - input_number
+      - input_boolean
 
-# Weather Prediction
-#sensor:
-#  platform: yr
-
-# Text to speech
-# tts:
-#   platform: google
-
-google:
-  client_id: !secret google_client_id
-  client_secret: !secret google_client_secret
+# google:
+#   client_id: !secret google_client_id
+#   client_secret: !secret google_client_secret
 
 rfxtrx:
   device: !secret rfxtrx_device
@@ -85,15 +81,3 @@ input_boolean: !include booleans.yaml
 rest_command: !include rest.yaml
 mqtt: !include mqtt.yaml
 cover: !include cover.yaml
-
-alexa:
-
-intent_script:
-  AlexaScript:
-    action:
-      service: script.turn_on
-      data_template:
-        entity_id: script.{{ action | replace('d\'','') | replace('é','e') }}_{{ device | replace(' ','_') }}
-    speech:
-      type: plain
-      text: !include alexa-confirm.yaml 

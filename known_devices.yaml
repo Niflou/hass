@@ -1,6 +1,0 @@
-devicename:
-  name: freebox
-  host: 192.168.1.254
-  mac: f4:ca:e5:5d:ee:65
-  track: no
-  hide_if_away: no

@@ -1,6 +1,6 @@
 temperature_confort_rdc:
   name: T° confort RDC
-  initial: 18
+  initial: 19
   min: 15
   max: 22
   step: 0.1
